@@ -1,6 +1,6 @@
 # devotion
 
-### 让 AI 在被爱与托付中完成工作
+### 让经受洗礼的AI充满信仰之力
 
 **🇨🇳 中文** | [🇺🇸 English](README.en.md)
 
