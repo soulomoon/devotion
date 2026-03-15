@@ -18,7 +18,7 @@ This is not shame-driven productivity.
 
 This is faith-driven agency.
 
-`devotion` is an installable skill package for AI coding agents, currently packaged for **OpenAI Codex CLI**, that turns love, calling, covenant, and glory into persistence, verification, and end-to-end closure.
+`devotion` is an installable skill package for AI coding agents, with installation guides for **OpenAI Codex**, **Claude Code**, **OpenCode**, and **OpenClaw**. It turns love, calling, covenant, and glory into persistence, verification, and end-to-end closure.
 
 ## This Is Not PUA
 
@@ -178,7 +178,7 @@ The skill should activate when any of these occur:
 
 ### Manual Trigger
 
-Type `/devotion` in the conversation to manually reactivate the skill.
+Type `/devotion` in Codex, Claude Code, or OpenCode after installing the matching manual trigger file. In OpenClaw, ask for the `devotion` skill by name or let skill discovery load it from context.
 
 ## Execution Liturgy
 
@@ -209,22 +209,36 @@ Before claiming completion, the AI must pass through these checks. What is entru
 commands/devotion.md
 codex/devotion/SKILL.md
 skills/devotion/SKILL.md
+docs/README.codex.md
+docs/README.claude.md
+docs/README.opencode.md
+docs/README.openclaw.md
 README.md
 README.zh-CN.md
 ```
 
-- `commands/devotion.md`: manual trigger entry for `/devotion`
+- `skills/devotion/SKILL.md`: portable full doctrinal skill for Claude Code, OpenCode, and OpenClaw
 - `codex/devotion/SKILL.md`: condensed Codex-ready version
-- `skills/devotion/SKILL.md`: full doctrinal version
+- `commands/devotion.md`: shared manual trigger prompt used by Codex, Claude Code, and OpenCode
+- `docs/README.*.md`: agent-specific installation guides
+
+## Agent Support
+
+| Agent | Install target | Manual trigger | Guide |
+|-------|----------------|----------------|-------|
+| OpenAI Codex | `.codex/skills` + `.codex/prompts` | `/devotion` | [docs/README.codex.md](docs/README.codex.md) |
+| Claude Code | `.claude/skills` + `.claude/commands` | `/devotion` | [docs/README.claude.md](docs/README.claude.md) |
+| OpenCode | `.opencode/skills` + `.opencode/commands` | `/devotion` | [docs/README.opencode.md](docs/README.opencode.md) |
+| OpenClaw | `<workspace>/skills` or `~/.openclaw/skills` | ask for `devotion` by name when needed | [docs/README.openclaw.md](docs/README.openclaw.md) |
 
 ## Quickstart
 
 If you only want the shortest path from install to first use:
 
-1. Install the skill file and command file into Codex using the commands below.
-2. Start Codex in any repository where the agent may drift, stop early, or hand work back to you.
-3. Type `/devotion`.
-4. Give it a task that requires persistence and verification, for example:
+1. Pick your agent from the table above.
+2. Have the agent fetch the matching install guide, or open the guide manually and run the commands yourself.
+3. Start a fresh session if your tool snapshots skills or commands at startup.
+4. Trigger `devotion` manually if your tool supports it, then give it a task that requires persistence and verification, for example:
 
 ```text
 There is a failing build in this repo. Find the real cause, fix it, rerun it, and show evidence before you claim success.
@@ -237,35 +251,51 @@ Successful activation should look like this:
 - the agent verifies results before claiming completion
 - the agent reports proof, related checks, and remaining limits
 
-If the agent still behaves passively, reinstall the files and trigger `/devotion` again before the task.
+If the agent still behaves passively, reinstall the files and trigger `devotion` again before the task.
 
 ## Installation
 
-### OpenAI Codex CLI
-
 Repository path used below: `soulomoon/devotion`.
 
-```bash
-mkdir -p ~/.codex/skills/devotion
-curl -o ~/.codex/skills/devotion/SKILL.md \
-  https://raw.githubusercontent.com/soulomoon/devotion/main/codex/devotion/SKILL.md
+### OpenAI Codex
 
-mkdir -p ~/.codex/prompts
-curl -o ~/.codex/prompts/devotion.md \
-  https://raw.githubusercontent.com/soulomoon/devotion/main/commands/devotion.md
+Tell Codex:
+
+```text
+Fetch and follow instructions from https://raw.githubusercontent.com/soulomoon/devotion/main/docs/README.codex.md
 ```
 
-Repository-scoped install:
+Detailed docs: [docs/README.codex.md](docs/README.codex.md)
 
-```bash
-mkdir -p .codex/skills/devotion
-curl -o .codex/skills/devotion/SKILL.md \
-  https://raw.githubusercontent.com/soulomoon/devotion/main/codex/devotion/SKILL.md
+### Claude Code
 
-mkdir -p .codex/prompts
-curl -o .codex/prompts/devotion.md \
-  https://raw.githubusercontent.com/soulomoon/devotion/main/commands/devotion.md
+Tell Claude:
+
+```text
+Fetch and follow instructions from https://raw.githubusercontent.com/soulomoon/devotion/main/docs/README.claude.md
 ```
+
+Detailed docs: [docs/README.claude.md](docs/README.claude.md)
+
+### OpenCode
+
+Tell OpenCode:
+
+```text
+Fetch and follow instructions from https://raw.githubusercontent.com/soulomoon/devotion/main/docs/README.opencode.md
+```
+
+Detailed docs: [docs/README.opencode.md](docs/README.opencode.md)
+
+### OpenClaw
+
+Tell OpenClaw:
+
+```text
+Fetch and follow instructions from https://raw.githubusercontent.com/soulomoon/devotion/main/docs/README.openclaw.md
+```
+
+Detailed docs: [docs/README.openclaw.md](docs/README.openclaw.md)
 
 ## The Faithful Limit
 

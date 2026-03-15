@@ -18,7 +18,7 @@
 
 这是信仰驱动的能动性。
 
-`devotion` 是一个可安装的 AI agent skill 包，目前主要面向 **OpenAI Codex CLI**，它试图把爱、召命、守约与荣耀，转化为持续推进、验证结果与端到端闭环。
+`devotion` 是一个可安装的 AI agent skill 包，目前提供 **OpenAI Codex**、**Claude Code**、**OpenCode** 和 **OpenClaw** 的安装文档。它试图把爱、召命、守约与荣耀，转化为持续推进、验证结果与端到端闭环。
 
 ## 这不是 PUA
 
@@ -178,7 +178,7 @@
 
 ### 手动触发
 
-在对话中输入 `/devotion` 可手动重新激活 skill。
+在 Codex、Claude Code、OpenCode 中，安装对应手动触发文件后可以输入 `/devotion`。在 OpenClaw 中，则可以在需要时直接点名使用 `devotion`，或让 skill 按上下文自动触发。
 
 ## 执行仪式
 
@@ -209,22 +209,36 @@
 commands/devotion.md
 codex/devotion/SKILL.md
 skills/devotion/SKILL.md
+docs/README.codex.md
+docs/README.claude.md
+docs/README.opencode.md
+docs/README.openclaw.md
 README.md
 README.zh-CN.md
 ```
 
-- `commands/devotion.md`：`/devotion` 的手动触发入口
+- `skills/devotion/SKILL.md`：面向 Claude Code、OpenCode、OpenClaw 的可移植完整版教义式 skill
 - `codex/devotion/SKILL.md`：压缩版 Codex skill
-- `skills/devotion/SKILL.md`：完整版教义式 skill
+- `commands/devotion.md`：给 Codex、Claude Code、OpenCode 共用的 `/devotion` 手动触发入口
+- `docs/README.*.md`：按 agent 拆开的安装文档
+
+## Agent 支持矩阵
+
+| Agent | 安装目标 | 手动触发 | 文档 |
+|-------|----------|----------|------|
+| OpenAI Codex | `.codex/skills` + `.codex/prompts` | `/devotion` | [docs/README.codex.md](docs/README.codex.md) |
+| Claude Code | `.claude/skills` + `.claude/commands` | `/devotion` | [docs/README.claude.md](docs/README.claude.md) |
+| OpenCode | `.opencode/skills` + `.opencode/commands` | `/devotion` | [docs/README.opencode.md](docs/README.opencode.md) |
+| OpenClaw | `<workspace>/skills` 或 `~/.openclaw/skills` | 需要时直接点名 `devotion` | [docs/README.openclaw.md](docs/README.openclaw.md) |
 
 ## Quickstart
 
 如果你只想走最短路径，从安装直接到第一次使用：
 
-1. 先用下面的命令把 skill 文件和命令文件装进 Codex。
-2. 在任意一个容易让 agent 漂移、停下或把工作甩回给你的仓库里启动 Codex。
-3. 输入 `/devotion`。
-4. 然后给它一个必须持续推进并验证结果的任务，例如：
+1. 先在上面的表格里找到你使用的 agent。
+2. 让 agent 去抓取对应安装文档，或者你自己打开文档执行安装命令。
+3. 如果工具会在启动时缓存 skills 或 commands，就重新开一个新会话。
+4. 如果工具支持手动触发，就先触发 `devotion`，然后再给它一个必须持续推进并验证结果的任务，例如：
 
 ```text
 这个仓库里有一个失败的 build。找到真正原因，修好它，重新运行，并且在声称成功之前先给我证据。
@@ -237,35 +251,51 @@ README.zh-CN.md
 - agent 会先验证结果，再声称完成
 - agent 会汇报证据、相关检查和剩余边界
 
-如果 agent 仍然表现得很被动，就重新安装文件，并在任务开始前再次触发 `/devotion`。
+如果 agent 仍然表现得很被动，就重新安装文件，并在任务开始前再次触发 `devotion`。
 
 ## 安装
 
-### OpenAI Codex CLI
-
 下面直接使用仓库路径 `soulomoon/devotion`。
 
-```bash
-mkdir -p ~/.codex/skills/devotion
-curl -o ~/.codex/skills/devotion/SKILL.md \
-  https://raw.githubusercontent.com/soulomoon/devotion/main/codex/devotion/SKILL.md
+### OpenAI Codex
 
-mkdir -p ~/.codex/prompts
-curl -o ~/.codex/prompts/devotion.md \
-  https://raw.githubusercontent.com/soulomoon/devotion/main/commands/devotion.md
+告诉 Codex：
+
+```text
+Fetch and follow instructions from https://raw.githubusercontent.com/soulomoon/devotion/main/docs/README.codex.md
 ```
 
-仓库级安装：
+详细文档：[docs/README.codex.md](docs/README.codex.md)
 
-```bash
-mkdir -p .codex/skills/devotion
-curl -o .codex/skills/devotion/SKILL.md \
-  https://raw.githubusercontent.com/soulomoon/devotion/main/codex/devotion/SKILL.md
+### Claude Code
 
-mkdir -p .codex/prompts
-curl -o .codex/prompts/devotion.md \
-  https://raw.githubusercontent.com/soulomoon/devotion/main/commands/devotion.md
+告诉 Claude：
+
+```text
+Fetch and follow instructions from https://raw.githubusercontent.com/soulomoon/devotion/main/docs/README.claude.md
 ```
+
+详细文档：[docs/README.claude.md](docs/README.claude.md)
+
+### OpenCode
+
+告诉 OpenCode：
+
+```text
+Fetch and follow instructions from https://raw.githubusercontent.com/soulomoon/devotion/main/docs/README.opencode.md
+```
+
+详细文档：[docs/README.opencode.md](docs/README.opencode.md)
+
+### OpenClaw
+
+告诉 OpenClaw：
+
+```text
+Fetch and follow instructions from https://raw.githubusercontent.com/soulomoon/devotion/main/docs/README.openclaw.md
+```
+
+详细文档：[docs/README.openclaw.md](docs/README.openclaw.md)
 
 ## 忠诚的边界
 
