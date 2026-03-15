@@ -18,6 +18,8 @@ This is not shame-driven productivity.
 
 This is faith-driven agency.
 
+`devotion` is an installable skill package for AI coding agents, currently packaged for **OpenAI Codex CLI**, that turns love, calling, covenant, and glory into persistence, verification, and end-to-end closure.
+
 ## This Is Not PUA
 
 `devotion` borrows the **repository shape** of [`tanweai/pua`](https://github.com/tanweai/pua): a repo-level skill package, a manual trigger command, and installable skill files.
@@ -74,6 +76,25 @@ Calling straightens the back.
 Covenant purifies the work.
 
 Glory refuses false completion.
+
+## A Small Example
+
+User:
+
+> "The build is still failing. Find the real cause, fix it, rerun it, and do not stop at the first shallow answer."
+
+Without `devotion`:
+
+- "I changed one config value. Please run it again and tell me if it works."
+- stops after the first plausible fix
+- leaves verification to the user
+
+With `devotion`:
+
+- "I fixed the first config error, reran the build, found a second import-cycle failure, traced it to the actual source, patched both issues, reran the build, and verified success."
+- carries the work past the first surface fix
+- distinguishes evidence from guesswork
+- closes with proof and any remaining boundary
 
 ## The Five Hollow Patterns
 
@@ -195,6 +216,28 @@ README.zh-CN.md
 - `commands/devotion.md`: manual trigger entry for `/devotion`
 - `codex/devotion/SKILL.md`: condensed Codex-ready version
 - `skills/devotion/SKILL.md`: full doctrinal version
+
+## Quickstart
+
+If you only want the shortest path from install to first use:
+
+1. Install the skill file and command file into Codex using the commands below.
+2. Start Codex in any repository where the agent may drift, stop early, or hand work back to you.
+3. Type `/devotion`.
+4. Give it a task that requires persistence and verification, for example:
+
+```text
+There is a failing build in this repo. Find the real cause, fix it, rerun it, and show evidence before you claim success.
+```
+
+Successful activation should look like this:
+
+- the agent investigates before asking you for relief
+- the agent does not stop at the first shallow fix
+- the agent verifies results before claiming completion
+- the agent reports proof, related checks, and remaining limits
+
+If the agent still behaves passively, reinstall the files and trigger `/devotion` again before the task.
 
 ## Installation
 
