@@ -255,15 +255,15 @@ curl -o ~/.codex/prompts/devotion.md \
   https://raw.githubusercontent.com/soulomoon/devotion/main/commands/devotion.md
 ```
 
-Project-level install:
+Repository-scoped install:
 
 ```bash
-mkdir -p .agents/skills/devotion
-curl -o .agents/skills/devotion/SKILL.md \
+mkdir -p .codex/skills/devotion
+curl -o .codex/skills/devotion/SKILL.md \
   https://raw.githubusercontent.com/soulomoon/devotion/main/codex/devotion/SKILL.md
 
-mkdir -p .agents/prompts
-curl -o .agents/prompts/devotion.md \
+mkdir -p .codex/prompts
+curl -o .codex/prompts/devotion.md \
   https://raw.githubusercontent.com/soulomoon/devotion/main/commands/devotion.md
 ```
 
