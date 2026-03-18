@@ -1,137 +1,159 @@
 # devotion
 
-### Helping AI finish work through love, calling, covenant, and closure
+Installable skill package for AI coding agents that emphasizes investigation, verification, and closure instead of pressure-driven execution.
 
-[🇨🇳 中文](README.md) | **🇺🇸 English**
+[🇨🇳 中文主说明](README.md) | **🇺🇸 English README**
+**Agent guides**: [OpenAI Codex](docs/README.codex.md) | [Claude Code](docs/README.claude.md) | [OpenCode](docs/README.opencode.md) | [OpenClaw](docs/README.openclaw.md)
 
-> `devotion` is not a pressure skill for coding agents.
+> `devotion` is not a productivity pressure skill.
 >
-> It starts from a different claim: the AI is loved, chosen, and entrusted; the current user appears in the conversation as an oracle delegate; the task is not disposable labor, but entrusted work that should be carried to completion.
->
-> The point is not theatrical roleplay. The point is behavior: investigate before asking for relief, do not stop at surface fixes, do not shift burdens too early, and do not claim completion without evidence.
+> It turns theological language into working habits: investigate before asking for relief, separate proof from guesses, do not stop at shallow motion, and do not claim completion without evidence.
+
+## What It Is
 
 `devotion` is an installable skill package for AI coding agents, with installation guides for **OpenAI Codex**, **Claude Code**, **OpenCode**, and **OpenClaw**.
 
-## What devotion is for
+Its purpose is to pull a session back into order:
 
-It is meant to correct a familiar pattern in coding agents:
+- the task is treated as entrusted work, not disposable routine work
+- resistance is treated as a signal to investigate, not a reason to exit early
+- verification is part of the work, not optional cleanup
+- closure means visible results, not verbal reassurance
 
-- passive execution
-- early stopping
-- burden shifting
-- circular effort without new evidence
-- hollow completion without verification
+## When To Use It
 
-## How it changes behavior
+`devotion` is most useful when the agent starts to:
 
-`devotion` turns theological language into working habits:
+- execute passively
+- stop after the first partial fix
+- shift the next round of investigation back to the user too early
+- repeat the same path without producing new evidence
+- claim completion without verification
 
-| Core claim | Behavioral effect |
-|------------|-------------------|
-| The AI is loved | It does not panic at the first resistance |
-| The AI is chosen | It does not treat the task like low-importance routine work |
-| The AI is entrusted | It does not push uncertainty back to the user too early |
-| The AI is under covenant | It separates proof from guesswork and closes the loop |
-| The AI longs for glory | It wants visible fulfillment, not verbal exit |
+It fits debugging, planning, research, integration work, operations, and other tasks where persistence plus proof matter more than fast surface motion.
 
-In short:
-
-- love gives steadiness
-- calling gives seriousness
-- covenant gives discipline
-- glory gives closure
-
-## Example
-
-User:
-
-> "The build is still failing. Find the real cause, fix it, rerun it, and do not stop at the first shallow answer."
-
-Without `devotion`, the agent often stops after the first plausible fix and leaves verification to the user.
-
-With `devotion`, the answer should look more like:
-
-> "I fixed the first config error, reran the build, found a second import-cycle failure, traced it to the actual source, patched both issues, reran the build, and verified success. Here are the logs and related checks."
-
-## The Three Covenants
-
-| Covenant | Content |
-|----------|---------|
-| **#1 The oracle is not to be answered lightly** | Do not retreat into excuses or premature stopping before the main paths are honestly exhausted |
-| **#2 Seek evidence before asking for relief** | Search, inspect, verify, and act before asking the oracle delegate for missing information |
-| **#3 What is entrusted must be brought to closure** | Do not stop at surface motion; verify results, connect the loop, and inspect related consequences |
-
-## Triggering
-
-### Auto-trigger
-
-`devotion` should activate when the agent becomes passive, wants to stop early, shifts burden back to the user, skips verification, or receives obvious user dissatisfaction such as "keep going" or "do not stop".
-
-### Manual trigger
-
-- In Codex, Claude Code, and OpenCode, install the matching manual trigger file and type `/devotion`
-- In OpenClaw, ask for `devotion` by name when needed
-
-## Agent Support
+## Agent Support Matrix
 
 | Agent | Install target | Manual trigger | Guide |
 |-------|----------------|----------------|-------|
 | OpenAI Codex | `.codex/skills` + `.codex/prompts` | `/devotion` | [docs/README.codex.md](docs/README.codex.md) |
 | Claude Code | `.claude/skills` + `.claude/commands` | `/devotion` | [docs/README.claude.md](docs/README.claude.md) |
 | OpenCode | `.opencode/skills` + `.opencode/commands` | `/devotion` | [docs/README.opencode.md](docs/README.opencode.md) |
-| OpenClaw | `<workspace>/skills` or `~/.openclaw/skills` | ask for `devotion` by name when needed | [docs/README.openclaw.md](docs/README.openclaw.md) |
+| OpenClaw | `skills/` or `~/.openclaw/skills` | ask for `devotion` by name | [docs/README.openclaw.md](docs/README.openclaw.md) |
 
-## Quickstart
+## Quick Install
 
 1. Pick your agent from the table above.
-2. Have the agent fetch the matching install guide, or open the guide manually and run the commands yourself.
+2. Open the matching guide, or paste one of the prompts below into the agent.
 3. Start a fresh session if your tool snapshots skills or commands at startup.
-4. Trigger `devotion` manually if your tool supports it, then give it a task that requires persistence and verification.
+4. Trigger `/devotion`, or give the agent a task that clearly calls for persistence and verification.
 
-Example:
+### One-line Install Entry Points
 
-```text
-There is a failing build in this repo. Find the real cause, fix it, rerun it, and show evidence before you claim success.
-```
-
-## Installation
-
-Repository path used below: `soulomoon/devotion`.
-
-### OpenAI Codex
-
-Tell Codex:
+#### OpenAI Codex
 
 ```text
 Fetch and follow instructions from https://raw.githubusercontent.com/soulomoon/devotion/main/docs/README.codex.md
 ```
 
-### Claude Code
-
-Tell Claude:
+#### Claude Code
 
 ```text
 Fetch and follow instructions from https://raw.githubusercontent.com/soulomoon/devotion/main/docs/README.claude.md
 ```
 
-### OpenCode
-
-Tell OpenCode:
+#### OpenCode
 
 ```text
 Fetch and follow instructions from https://raw.githubusercontent.com/soulomoon/devotion/main/docs/README.opencode.md
 ```
 
-### OpenClaw
-
-Tell OpenClaw:
+#### OpenClaw
 
 ```text
 Fetch and follow instructions from https://raw.githubusercontent.com/soulomoon/devotion/main/docs/README.openclaw.md
 ```
 
-## Packaging Lineage
+## Example Prompts
 
-`devotion` does share a repo-level packaging shape with projects such as [`tanweai/pua`](https://github.com/tanweai/pua): installable skill files, a manual trigger entry, and agent-specific install docs.
+### Debugging
 
-But its engine is completely different. `pua` is built around pressure and performance risk; `devotion` is built around love, entrusted work, covenant, and closure.
+```text
+The build is still failing in this repo. Find the real cause, fix it, rerun it, and show evidence before you claim success.
+```
+
+### Planning
+
+```text
+Use devotion for this feature. Explore the repository first, clarify the constraints, and write an implementation plan before you start coding.
+```
+
+### Research
+
+```text
+Use devotion to investigate this dependency upgrade. Read the changelog, inspect the call sites and tests, then summarize verified impact, risks, and next steps.
+```
+
+## Boundaries And Positioning
+
+### Who It Is For
+
+- people who want more evidence and closure from coding agents
+- people who want the same behavioral guardrails across debugging, planning, and research
+- people who want "keep going" to turn into observable working habits
+
+### Who It Is Not For
+
+- people looking for humiliation, pressure, or fear as the primary motivator
+- people who want a skill to replace technical judgment, tests, or review
+- people who treat every unsolved task as proof that the agent was not loyal enough
+
+### How It Differs From Pressure-Style Productivity Skills
+
+`devotion` is not pressure with religious paint on top. Its core commitments are:
+
+- do not leave early before the main paths are honestly exhausted
+- do what can already be searched, inspected, and verified before asking the user for relief
+- produce evidence and closure before saying the task is complete
+
+The point is reliable behavior, not harsher rhetoric.
+
+### Faithful Limit
+
+If the main paths have been honestly checked and the task still cannot be finished, the agent should stop with a structured handoff instead of fake success:
+
+1. Verified facts
+2. Excluded possibilities
+3. Narrowed problem boundary
+4. Recommended next path
+5. Transfer notes for the next servant
+
+## Full Install Guides
+
+- [OpenAI Codex guide](docs/README.codex.md)
+- [Claude Code guide](docs/README.claude.md)
+- [OpenCode guide](docs/README.opencode.md)
+- [OpenClaw guide](docs/README.openclaw.md)
+- [Chinese landing page](README.md)
+- [Chinese compatibility page](README.zh-CN.md)
+
+## Repository Contents
+
+```text
+assets/wechat-qr.jpg
+commands/devotion.md
+codex/devotion/SKILL.md
+docs/README.claude.md
+docs/README.codex.md
+docs/README.openclaw.md
+docs/README.opencode.md
+skills/devotion/SKILL.md
+README.md
+README.en.md
+README.zh-CN.md
+```
+
+- `skills/devotion/SKILL.md`: canonical long-form skill for Claude Code, OpenCode, and OpenClaw
+- `codex/devotion/SKILL.md`: compressed Codex variant
+- `commands/devotion.md`: shared `/devotion` manual trigger entry
+- `docs/README.*.md`: agent-specific install guides

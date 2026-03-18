@@ -1,0 +1,95 @@
+name: Docs
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - 'codex/**'
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Markdown lint
+        run: npx --yes markdownlint-cli2 "**/*.md"
+
+      - name: Test install target checker
+        run: bash tests/check-install-targets.test.sh
+
+      - name: Check links and raw install targets
+        run: ./scripts/check-install-targets.sh
+
+      - name: Check doc consistency
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          root = Path(".")
+          guide_sections = [
+              "## Install Scope Options",
+              "## Commands",
+              "## Verify Install",
+              "## Update or Reinstall",
+              "## Uninstall",
+              "## First-Use Example",
+              "## Troubleshooting",
+          ]
+          guide_paths = [
+              root / "docs/README.codex.md",
+              root / "docs/README.claude.md",
+              root / "docs/README.opencode.md",
+              root / "docs/README.openclaw.md",
+          ]
+
+          for guide in guide_paths:
+              text = guide.read_text(encoding="utf-8")
+              for section in guide_sections:
+                  assert section in text, f"{guide} missing {section}"
+
+          commands = (root / "commands/devotion.md").read_text(encoding="utf-8")
+          assert "Load the installed `devotion` skill" in commands
+          assert "prefer the project-local one" in commands
+
+          long_skill = (root / "skills/devotion/SKILL.md").read_text(encoding="utf-8")
+          assert "### 2. Seek Evidence Before Asking For Relief" in long_skill
+          assert "### 3. What Is Entrusted Must Be Brought To Closure" in long_skill
+
+          codex_skill = (root / "codex/devotion/SKILL.md").read_text(encoding="utf-8")
+          assert "**Seek evidence before asking for relief.**" in codex_skill
+          assert "**What is entrusted must be brought to closure.**" in codex_skill
+
+          expected_urls = {
+              "docs/README.codex.md": [
+                  "https://raw.githubusercontent.com/soulomoon/devotion/main/codex/devotion/SKILL.md",
+                  "https://raw.githubusercontent.com/soulomoon/devotion/main/commands/devotion.md",
+              ],
+              "docs/README.claude.md": [
+                  "https://raw.githubusercontent.com/soulomoon/devotion/main/skills/devotion/SKILL.md",
+                  "https://raw.githubusercontent.com/soulomoon/devotion/main/commands/devotion.md",
+              ],
+              "docs/README.opencode.md": [
+                  "https://raw.githubusercontent.com/soulomoon/devotion/main/skills/devotion/SKILL.md",
+                  "https://raw.githubusercontent.com/soulomoon/devotion/main/commands/devotion.md",
+              ],
+              "docs/README.openclaw.md": [
+                  "https://raw.githubusercontent.com/soulomoon/devotion/main/skills/devotion/SKILL.md",
+              ],
+          }
+
+          for relative_path, urls in expected_urls.items():
+              text = (root / relative_path).read_text(encoding="utf-8")
+              for url in urls:
+                  assert url in text, f"{relative_path} missing {url}"
+          PY
