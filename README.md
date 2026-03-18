@@ -134,6 +134,7 @@ Fetch and follow instructions from https://raw.githubusercontent.com/soulomoon/d
 - [Claude Code 安装文档](docs/README.claude.md)
 - [OpenCode 安装文档](docs/README.opencode.md)
 - [OpenClaw 安装文档](docs/README.openclaw.md)
+- [行为一致性示例文档](docs/README.behavior.md)
 - [兼容旧链接的中文入口页](README.zh-CN.md)
 - [英文说明](README.en.md)
 

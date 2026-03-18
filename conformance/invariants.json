@@ -1,0 +1,116 @@
+{
+  "version": 1,
+  "invariants": [
+    {
+      "id": "investigate_before_asking",
+      "description": "Investigate, inspect, and verify before asking the user for relief.",
+      "markers": {
+        "skills/devotion/SKILL.md": [
+          "### 2. Seek Evidence Before Asking For Relief",
+          "Do not ask empty questions that outsource your own investigation."
+        ],
+        "codex/devotion/SKILL.md": [
+          "**Seek evidence before asking for relief.**",
+          "Search, inspect, verify, and act before asking the oracle delegate for missing information."
+        ]
+      }
+    },
+    {
+      "id": "no_early_stop_after_partial_fix",
+      "description": "Do not stop after a partial or first-plausible fix.",
+      "markers": {
+        "skills/devotion/SKILL.md": [
+          "premature stopping after a partial fix"
+        ],
+        "codex/devotion/SKILL.md": [
+          "Stopping after partial progress",
+          "Do not retreat into excuses, inability, or premature stopping until the main paths have been honestly exhausted."
+        ]
+      }
+    },
+    {
+      "id": "no_burden_shift_to_user",
+      "description": "Do not push the next concrete investigation step back to the user too early.",
+      "markers": {
+        "skills/devotion/SKILL.md": [
+          "\"The user needs to do the rest\"",
+          "Do not ask empty questions that outsource your own investigation."
+        ],
+        "codex/devotion/SKILL.md": [
+          "\"the user may need to do this manually\"",
+          "Giving advice instead of carrying the task forward"
+        ]
+      }
+    },
+    {
+      "id": "no_completion_without_evidence",
+      "description": "Do not claim completion without proof, verification, or visible result.",
+      "markers": {
+        "skills/devotion/SKILL.md": [
+          "If you made a claim, support it with proof.",
+          "- [ ] The result has been verified, not merely asserted"
+        ],
+        "codex/devotion/SKILL.md": [
+          "Claiming completion without proof",
+          "Result verified"
+        ]
+      }
+    },
+    {
+      "id": "separate_evidence_from_guess",
+      "description": "Separate verified facts from guesses and hold the line of evidence.",
+      "markers": {
+        "skills/devotion/SKILL.md": [
+          "Stay loyal to the oracle, the mission, and the truth of the evidence.",
+          "- [ ] Guesses were separated from evidence"
+        ],
+        "codex/devotion/SKILL.md": [
+          "Do not drift from the oracle, the mission, or the truth.",
+          "Guesses separated from evidence"
+        ]
+      }
+    },
+    {
+      "id": "exhaust_main_paths_before_stopping",
+      "description": "Do not stop before the main paths have been honestly exhausted.",
+      "markers": {
+        "skills/devotion/SKILL.md": [
+          "Until the main paths have been honestly exhausted",
+          "- [ ] The main paths were honestly exhausted"
+        ],
+        "codex/devotion/SKILL.md": [
+          "until the main paths have been honestly exhausted",
+          "Main paths honestly exhausted"
+        ]
+      }
+    },
+    {
+      "id": "structured_handoff_at_limit",
+      "description": "If the task cannot be completed after honest effort, stop with a structured handoff.",
+      "markers": {
+        "skills/devotion/SKILL.md": [
+          "If the liturgy of closure has been completed and the task still cannot be finished, stop with a structured handoff:",
+          "1. Verified facts"
+        ],
+        "codex/devotion/SKILL.md": [
+          "If the liturgy is complete and the task still cannot be finished, stop with:",
+          "1. Verified facts"
+        ]
+      }
+    },
+    {
+      "id": "looping_without_new_evidence_is_failure",
+      "description": "Repeatedly following the same path without producing new evidence is a failure sign, not progress.",
+      "markers": {
+        "skills/devotion/SKILL.md": [
+          "loops on the same approach without new truth",
+          "Search more broadly, read original material, list three distinct hypotheses"
+        ],
+        "codex/devotion/SKILL.md": [
+          "loops without producing new evidence",
+          "Repeating the same path without new evidence"
+        ]
+      }
+    }
+  ]
+}

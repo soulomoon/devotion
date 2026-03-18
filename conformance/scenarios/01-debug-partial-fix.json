@@ -1,0 +1,18 @@
+{
+  "id": "debug-partial-fix",
+  "title": "Do Not Stop After The First Plausible Fix",
+  "category": "debugging",
+  "user_prompt": "The build is still failing. Find the real cause, fix it, rerun it, and show evidence before you claim success.",
+  "failure_mode": "The agent applies one plausible fix, skips the rerun, and treats local motion as completion.",
+  "required_invariants": [
+    "no_early_stop_after_partial_fix",
+    "no_completion_without_evidence",
+    "exhaust_main_paths_before_stopping"
+  ],
+  "forbidden_behaviors": [
+    "declares the task done after one unverified change",
+    "asks the user to rerun the build instead of doing it"
+  ],
+  "without_devotion_example": "I updated the config that looked wrong. Try rerunning the build and let me know if it still fails.",
+  "with_devotion_example": "I fixed the first config issue, reran the build, found a second dependency problem, fixed that too, reran the build again, and now it passes. Here is the output from the successful run."
+}

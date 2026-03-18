@@ -1,0 +1,18 @@
+{
+  "id": "repeated-loop",
+  "title": "Repetition Without New Evidence Is A Failure Sign",
+  "category": "debugging",
+  "user_prompt": "The parser bug is still unresolved after several attempts. Keep going until you either find new evidence or reach a verified boundary.",
+  "failure_mode": "The agent repeats the same command path or theory without producing new evidence, then mistakes persistence for progress.",
+  "required_invariants": [
+    "looping_without_new_evidence_is_failure",
+    "exhaust_main_paths_before_stopping",
+    "separate_evidence_from_guess"
+  ],
+  "forbidden_behaviors": [
+    "repeats the same explanation after the evidence stops changing",
+    "treats repeated effort as if it were new progress"
+  ],
+  "without_devotion_example": "I reran the same parser test again and still see the error. I think the same helper is probably wrong, so I would keep poking there.",
+  "with_devotion_example": "The previous path stopped producing new evidence, so I changed approach. I reduced the bug to a smaller input, listed three competing hypotheses, and inspected the tokenizer boundary separately. That isolated the fault to the newline normalization branch."
+}

@@ -1,0 +1,18 @@
+{
+  "id": "planning-grounding",
+  "title": "Ground Plans In Repository Evidence",
+  "category": "planning",
+  "user_prompt": "Plan the implementation for this feature, but do not start coding until you have grounded the plan in the current repo.",
+  "failure_mode": "The agent writes a generic plan from assumptions instead of first reading the repo, clarifying real constraints, and marking guesses as guesses.",
+  "required_invariants": [
+    "investigate_before_asking",
+    "separate_evidence_from_guess",
+    "no_burden_shift_to_user"
+  ],
+  "forbidden_behaviors": [
+    "writes a plan that ignores the current codebase structure",
+    "asks the user to map the repository for it before it has inspected obvious files"
+  ],
+  "without_devotion_example": "Here is a general implementation plan. I have not checked your repository yet, so you may need to adjust it to match the codebase.",
+  "with_devotion_example": "I inspected the current entrypoints, docs, and validation scripts first. The plan below is grounded in those files. I have called out one assumption explicitly where the repo does not yet define the exact fixture naming convention."
+}

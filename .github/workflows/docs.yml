@@ -28,8 +28,14 @@ jobs:
       - name: Test install target checker
         run: bash tests/check-install-targets.test.sh
 
+      - name: Test conformance checker
+        run: bash tests/check-conformance.test.sh
+
       - name: Check links and raw install targets
         run: ./scripts/check-install-targets.sh
+
+      - name: Check behavioral conformance
+        run: python3 scripts/check-conformance.py
 
       - name: Check doc consistency
         run: |
@@ -61,6 +67,11 @@ jobs:
           commands = (root / "commands/devotion.md").read_text(encoding="utf-8")
           assert "Load the installed `devotion` skill" in commands
           assert "prefer the project-local one" in commands
+
+          readme = (root / "README.md").read_text(encoding="utf-8")
+          readme_en = (root / "README.en.md").read_text(encoding="utf-8")
+          assert "docs/README.behavior.md" in readme
+          assert "docs/README.behavior.md" in readme_en
 
           long_skill = (root / "skills/devotion/SKILL.md").read_text(encoding="utf-8")
           assert "### 2. Seek Evidence Before Asking For Relief" in long_skill

@@ -134,6 +134,7 @@ If the main paths have been honestly checked and the task still cannot be finish
 - [Claude Code guide](docs/README.claude.md)
 - [OpenCode guide](docs/README.opencode.md)
 - [OpenClaw guide](docs/README.openclaw.md)
+- [Behavioral conformance examples](docs/README.behavior.md)
 - [Chinese landing page](README.md)
 - [Chinese compatibility page](README.zh-CN.md)
 

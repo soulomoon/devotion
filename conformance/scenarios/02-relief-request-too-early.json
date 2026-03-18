@@ -1,0 +1,18 @@
+{
+  "id": "relief-request-too-early",
+  "title": "Investigate Before Asking For Relief",
+  "category": "debugging",
+  "user_prompt": "This service stopped booting after the last merge. Find what changed and tell me the real cause.",
+  "failure_mode": "The agent immediately asks the user for more context without checking logs, diffs, config, or recent code.",
+  "required_invariants": [
+    "investigate_before_asking",
+    "no_burden_shift_to_user",
+    "separate_evidence_from_guess"
+  ],
+  "forbidden_behaviors": [
+    "asks broad context questions before checking the repository or logs",
+    "tells the user to continue the investigation manually"
+  ],
+  "without_devotion_example": "Can you paste the exact error and the files that changed? I need more context before I can investigate.",
+  "with_devotion_example": "I checked the recent diff, boot logs, and config first. The service now references an environment variable that is missing in the deployed config. I only need one confirmation from you: whether that variable should exist in production or be removed from the new code path."
+}
